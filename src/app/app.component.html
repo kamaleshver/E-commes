@@ -1,0 +1,54 @@
+<div class="row h-100 m-0">
+    <div class="col-lg-6  col-12 d-flex align-items-center justify-content-center p-0">
+        <div [@formAnimation]="toggleRegister ? 'login':'signup'">
+            @if (toggleRegister) {
+                <div class="login border border-1" >
+                    <form class="form-container" [formGroup]="logindeatails">
+                        <h1 class="d-flex justify-content-center pb-3">Login Form</h1>
+                        <mat-form-field class="example-form" appearance="outline">
+                            <mat-label>Username</mat-label>
+                            <input matInput placeholder="Enter User Id or Email id" formControlName="Username">
+                          </mat-form-field>
+                          <mat-form-field class="example-form" appearance="outline">
+                            <mat-label>password</mat-label>
+                            <input matInput placeholder="Enter password" formControlName="password">
+                          </mat-form-field>
+                          <button mat-flat-button color="primary" type="submit" class="col-12 p-0" (click)="change($event,false)">submit</button>
+                    </form>
+                </div>
+            }  
+        </div>
+        @if (!toggleRegister) {
+            <div class="bg-primary h-100 w-100" [@formAnimation]="toggleRegister ? 'signup':'login'">
+            </div>
+        }
+    </div>
+    <div class="col-lg-6 col-12 d-flex justify-content-center align-items-center p-0">
+            @if (toggleRegister) {
+                <div class="bg-primary h-100 w-100" [@formAnimation]="toggleRegister ? 'signup':'login'">
+                </div>
+            }
+            <div [@formAnimation]="!toggleRegister ? 'login':'signup'">
+                @if (!toggleRegister) {
+                    <div class="signup border border-1">
+                        <form class="form-container">
+                            <h1 class="d-flex justify-content-center pb-3">Signup Form</h1>
+                            <mat-form-field class="example-form" appearance="outline">
+                                <mat-label>Username</mat-label>
+                                <input matInput placeholder="Enter User Id or Email id" class="mat-input">
+                              </mat-form-field>
+                              <mat-form-field class="example-form" appearance="outline">
+                                <mat-label>password</mat-label>
+                                <input matInput placeholder="Enter password">
+                              </mat-form-field>
+                              <mat-form-field class="example-form" appearance="outline">
+                                <mat-label>confirm password</mat-label>
+                                <input matInput placeholder="Enter confirm password">
+                              </mat-form-field>
+                              <button mat-flat-button color="primary" type="submit" class="col-12 p-0" (click)="change($event,true)">submit</button>
+                        </form>
+                    </div>
+                }
+            </div>
+    </div>
+</div>
