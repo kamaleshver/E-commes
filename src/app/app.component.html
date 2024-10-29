@@ -31,20 +31,22 @@
             <div [@formAnimation]="!toggleRegister ? 'login':'signup'">
                 @if (!toggleRegister) {
                     <div class="signup border border-1">
-                        <form class="form-container">
+                        <form class="form-container" [formGroup]="registerDetails">
                             <h1 class="d-flex justify-content-center pb-3">Signup Form</h1>
-                            <mat-form-field class="example-form" appearance="outline">
-                                <mat-label>Username</mat-label>
-                                <input matInput placeholder="Enter User Id or Email id" class="mat-input">
-                              </mat-form-field>
-                              <mat-form-field class="example-form" appearance="outline">
-                                <mat-label>password</mat-label>
-                                <input matInput placeholder="Enter password">
-                              </mat-form-field>
-                              <mat-form-field class="example-form" appearance="outline">
-                                <mat-label>confirm password</mat-label>
-                                <input matInput placeholder="Enter confirm password">
-                              </mat-form-field>
+                            <div formGroupName="personalInfo">
+                                <mat-form-field class="example-form" appearance="outline">
+                                    <mat-label>Username</mat-label>
+                                    <input matInput placeholder="Enter User Id or Email id" class="mat-input" formControlName="userName">
+                                  </mat-form-field>
+                                  <mat-form-field class="example-form" appearance="outline">
+                                    <mat-label>password</mat-label>
+                                    <input matInput placeholder="Enter password" formControlName="passWord">
+                                  </mat-form-field>
+                                  <mat-form-field class="example-form" appearance="outline">
+                                    <mat-label>confirm password</mat-label>
+                                    <input matInput placeholder="Enter confirm password" formControlName="confirmPassword">
+                                  </mat-form-field>
+                            </div>
                               <button mat-flat-button color="primary" type="submit" class="col-12 p-0" (click)="change($event,true)">submit</button>
                         </form>
                     </div>

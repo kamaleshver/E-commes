@@ -23,6 +23,7 @@ export class AppComponent implements OnInit{
   constructor(private formbuilder:FormBuilder){}
   ngOnInit(): void {
      this.getLoginDeatils();
+     this.getRegisterDetails();
   }
   getLoginDeatils(){
     this.logindeatails=this.formbuilder.group({
@@ -32,6 +33,11 @@ export class AppComponent implements OnInit{
   }
   getRegisterDetails(){
     this.registerDetails=this.formbuilder.group({
+      personalInfo:this.formbuilder.group({
+        userName: ['',[Validators.required]],
+        passWord: ['',[Validators.required]],
+        confirmPassword:['',[Validators.required]]
+      }),
       Kyc:this.formbuilder.group({
         panDetails:[''],
         adharDetails:['']
